@@ -13,7 +13,7 @@ namespace Library
 
         public Baggage(string tag, LuggageType luggage, int weight) : base(tag, luggage, weight)
         {
-            this.content = ContentGenerator();
+            this.content = GenerateContent();
         }
 
         public override string ToString()
@@ -21,7 +21,7 @@ namespace Library
             return "=== Content: ===\n\n"+content+EmitSound();
         }
 
-        public override string ContentGenerator()
+        public override string GenerateContent()
         {
             Random number = new Random();
             StringBuilder content = new StringBuilder();

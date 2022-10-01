@@ -29,6 +29,6 @@ namespace Library
         public string Tag { get => this.tag; }
         public int Weight { get => this.weight; }
         public LuggageType LuggageType { get => this.luggageType; }
-        public abstract string ContentGenerator();
+        public abstract string GenerateContent();
     }
 }

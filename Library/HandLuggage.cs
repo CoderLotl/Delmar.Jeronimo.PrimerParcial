@@ -14,7 +14,7 @@ namespace Library
         public HandLuggage(string tag, LuggageType luggage, int weight) : base(tag, luggage, weight)
         {
             this.money = MoneyGenerator();
-            this.content = ContentGenerator();
+            this.content = GenerateContent();
         }
 
         private float MoneyGenerator()
@@ -29,7 +29,7 @@ namespace Library
             return "=== Content: ===\n\n" + content + "\nMoney: "+money.ToString("c2");
         }
 
-        public override string ContentGenerator()
+        public override string GenerateContent()
         {
             Random number = new Random();
             StringBuilder content = new StringBuilder();
