@@ -48,7 +48,7 @@ namespace UI
 
         private void Btn_SellTicketAccept_Click(object sender, EventArgs e)
         {
-            FrmSellTicket sellTicket = new FrmSellTicket(aFlight,clients);
+            FrmSellTicket sellTicket = new FrmSellTicket(aFlight!,clients);
             if(sellTicket.ShowDialog() == DialogResult.OK)
             {
                 aFlight = sellTicket.AFlight;

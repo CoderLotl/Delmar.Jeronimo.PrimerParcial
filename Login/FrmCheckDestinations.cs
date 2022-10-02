@@ -27,9 +27,7 @@ namespace UI
         }
 
         private void DrawDataTable()
-        {
-            destinationsDataTable = new DataTable();
-            destinationsDataView = destinationsDataTable.DefaultView;
+        {            
             destinationsDataTable = new DataTable();
             destinationsDataView = destinationsDataTable.DefaultView;
             destinationsDataTable.Columns.Add("Destination", typeof(string));

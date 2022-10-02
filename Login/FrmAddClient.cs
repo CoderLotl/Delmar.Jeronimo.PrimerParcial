@@ -15,7 +15,7 @@ namespace UI
     public partial class FrmAddClient : Form
     {
         //******************************************************
-        Passenger aPassenger;
+        Passenger? aPassenger;
         List<Passenger> clients;
         string gender;
         //******************************************************
@@ -31,7 +31,7 @@ namespace UI
 
         public Passenger Passenger
         {
-            get { return aPassenger; }
+            get { return aPassenger!; }
         }
 
         // ------------------------------------------------------

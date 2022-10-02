@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.grpBox_User = new System.Windows.Forms.GroupBox();
             this.btn_ExitProgram = new System.Windows.Forms.Button();
@@ -105,6 +105,7 @@
             this.btn_ExitProgram.Text = "Exit";
             this.btn_ExitProgram.UseVisualStyleBackColor = true;
             this.btn_ExitProgram.Click += new System.EventHandler(this.Btn_ExitProgram_Click);
+            this.btn_ExitProgram.MouseHover += new System.EventHandler(this.btn_ExitProgram_MouseHover);
             // 
             // btn_LogOut
             // 
@@ -116,6 +117,7 @@
             this.btn_LogOut.Text = "Logout";
             this.btn_LogOut.UseVisualStyleBackColor = true;
             this.btn_LogOut.Click += new System.EventHandler(this.Btn_LogOut_Click);
+            this.btn_LogOut.MouseHover += new System.EventHandler(this.btn_LogOut_MouseHover);
             // 
             // lbl_UserName
             // 
@@ -246,6 +248,7 @@
             this.Btn_ViewClient.Text = "View Clients";
             this.Btn_ViewClient.UseVisualStyleBackColor = false;
             this.Btn_ViewClient.Click += new System.EventHandler(this.button3_Click);
+            this.Btn_ViewClient.MouseHover += new System.EventHandler(this.Btn_ViewClient_MouseHover);
             // 
             // Btn_AddClient
             // 
@@ -259,6 +262,7 @@
             this.Btn_AddClient.Text = "Add Client";
             this.Btn_AddClient.UseVisualStyleBackColor = false;
             this.Btn_AddClient.Click += new System.EventHandler(this.Btn_AddClient_Click);
+            this.Btn_AddClient.MouseHover += new System.EventHandler(this.Btn_AddClient_MouseHover);
             // 
             // Btn_SellTicket
             // 
@@ -272,6 +276,7 @@
             this.Btn_SellTicket.Text = "Sell Ticket";
             this.Btn_SellTicket.UseVisualStyleBackColor = false;
             this.Btn_SellTicket.Click += new System.EventHandler(this.Btn_SellTicket_Click);
+            this.Btn_SellTicket.MouseHover += new System.EventHandler(this.Btn_SellTicket_MouseHover);
             // 
             // Btn_AddFlight
             // 
@@ -285,6 +290,7 @@
             this.Btn_AddFlight.Text = "Add Flight";
             this.Btn_AddFlight.UseVisualStyleBackColor = false;
             this.Btn_AddFlight.Click += new System.EventHandler(this.Btn_AddFlight_Click);
+            this.Btn_AddFlight.MouseHover += new System.EventHandler(this.Btn_AddFlight_MouseHover);
             // 
             // DgvMainGrid
             // 
@@ -300,42 +306,42 @@
             this.DgvMainGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvMainGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.DgvMainGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvMainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvMainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvMainGrid.ColumnHeadersHeight = 45;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvMainGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvMainGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvMainGrid.EnableHeadersVisualStyles = false;
             this.DgvMainGrid.GridColor = System.Drawing.Color.SteelBlue;
             this.DgvMainGrid.Location = new System.Drawing.Point(253, 143);
             this.DgvMainGrid.Name = "DgvMainGrid";
             this.DgvMainGrid.ReadOnly = true;
             this.DgvMainGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvMainGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            this.DgvMainGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvMainGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.DgvMainGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvMainGrid.RowTemplate.Height = 50;
             this.DgvMainGrid.RowTemplate.ReadOnly = true;
             this.DgvMainGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -365,6 +371,7 @@
             this.cmbBox_Flights.Size = new System.Drawing.Size(188, 25);
             this.cmbBox_Flights.TabIndex = 0;
             this.cmbBox_Flights.SelectedIndexChanged += new System.EventHandler(this.CmbBox_Flights_SelectedIndexChanged);
+            this.cmbBox_Flights.MouseHover += new System.EventHandler(this.cmbBox_Flights_MouseHover);
             // 
             // grpBox_Passengers
             // 
@@ -387,6 +394,7 @@
             this.cmbBox_Passengers.Size = new System.Drawing.Size(188, 25);
             this.cmbBox_Passengers.TabIndex = 0;
             this.cmbBox_Passengers.SelectedIndexChanged += new System.EventHandler(this.CmbBox_Passengers_SelectedIndexChanged);
+            this.cmbBox_Passengers.MouseHover += new System.EventHandler(this.cmbBox_Passengers_MouseHover);
             // 
             // statusStrip1
             // 
@@ -456,6 +464,7 @@
             this.Lbl_ClientsAmount.Size = new System.Drawing.Size(46, 18);
             this.Lbl_ClientsAmount.TabIndex = 9;
             this.Lbl_ClientsAmount.Text = "label1";
+            this.Lbl_ClientsAmount.MouseHover += new System.EventHandler(this.Lbl_ClientsAmount_MouseHover);
             // 
             // groupBox1
             // 
@@ -503,6 +512,7 @@
             this.Btn_MainCheckDestinations.Text = "Check Destinations";
             this.Btn_MainCheckDestinations.UseVisualStyleBackColor = true;
             this.Btn_MainCheckDestinations.Click += new System.EventHandler(this.Btn_MainCheckDestinations_Click);
+            this.Btn_MainCheckDestinations.MouseHover += new System.EventHandler(this.Btn_MainCheckDestinations_MouseHover);
             // 
             // FrmMain
             // 

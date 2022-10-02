@@ -19,7 +19,7 @@ namespace UI
         //******************************************************
         List<Airplane> airplanes;
         Airplane? plane;
-        Flight flight;        
+        Flight? flight;        
 
         Random randomNumber = new Random();        
         DateTime currentDate;
@@ -37,12 +37,12 @@ namespace UI
 
         public Airplane Plane
         {
-            get { return plane; }
+            get { return plane!; }
         }
 
         public Flight Flight
         {
-            get { return flight; }
+            get { return flight!; }
         }
 
         //------------------------------------------------------------

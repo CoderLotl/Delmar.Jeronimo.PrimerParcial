@@ -243,6 +243,14 @@ namespace UI
             viewClients.Show();
         }
 
+        //***********************************************
+
+        private void Btn_MainCheckDestinations_Click(object sender, EventArgs e)
+        {
+            FrmCheckDestinations FrmDestinations = new FrmCheckDestinations(destinations);
+            FrmDestinations.Show();
+        }
+
         //------------------------------------------------------------
         //-------------------------------------------[ METHODS ]
         //------------------------------------------------------------
@@ -517,6 +525,30 @@ namespace UI
             login.Show();
         }
 
+        //***********************************************
+
+        private void RdoBttn_SourceCurrent_CheckedChanged(object sender, EventArgs e)
+        {
+            if(RdoBttn_SourceCurrent.Checked == true)
+            {
+                source = flights;
+                DataGridAllFlightsDisplay();
+                CmbBoxFlightsPopulate();
+            }            
+        }
+
+        //***********************************************
+
+        private void RdoBttn_SourceHistory_CheckedChanged(object sender, EventArgs e)
+        {
+            if(RdoBttn_SourceHistory.Checked == true)
+            {
+                source = history;
+                DataGridAllFlightsDisplay();
+                CmbBoxFlightsPopulate();
+            }
+        }
+
         //------------------------------------------------------------
         //-------------------------------------------[ TOOLTIPS ]
         //------------------------------------------------------------
@@ -534,35 +566,66 @@ namespace UI
             toolTip1.Show("This label shows the amount of currently on-going flights.\nEvery time a flight is created or finished it will be reflected here.",Lbl_FlightsAmount);
         }
 
-        private void RdoBttn_SourceCurrent_CheckedChanged(object sender, EventArgs e)
-        {
-            if(RdoBttn_SourceCurrent.Checked == true)
-            {
-                source = flights;
-                DataGridAllFlightsDisplay();
-                CmbBoxFlightsPopulate();
-            }            
-        }
+        //***********************************************
 
-        private void RdoBttn_SourceHistory_CheckedChanged(object sender, EventArgs e)
+        private void cmbBox_Flights_MouseHover(object sender, EventArgs e)
         {
-            if(RdoBttn_SourceHistory.Checked == true)
-            {
-                source = history;
-                DataGridAllFlightsDisplay();
-                CmbBoxFlightsPopulate();
-            }
+            toolTip1.Show("This combobox allows the user to pick among the flights from the source, be it history or current flights.\n" +
+                            "If there are no flights, it will appear empty.\n\n" +
+                            "If the user selects a flight, they can see the details of the selected flight.", cmbBox_Flights);
         }
-
-        private void Btn_MainCheckDestinations_Click(object sender, EventArgs e)
-        {
-            FrmCheckDestinations FrmDestinations = new FrmCheckDestinations(destinations);
-            FrmDestinations.Show();
-        }
-
 
         //***********************************************
 
+        private void cmbBox_Passengers_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This combobox allows the user to pick among the passengers from the flight.\n" +
+                "If there are no passengers, it will appear empty.\n\n" +
+                "If the user selects a passenger, they can see the details of the selected passenger.", cmbBox_Passengers);
+        }
 
+        //***********************************************
+
+        private void Btn_SellTicket_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This button opens the ticket selling hub, from which the user can select a flight, filtering if they wish so, and then" +
+                            "sell a ticket for that flight.", Btn_SellTicket);
+        }
+
+        private void Btn_AddFlight_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This button opens the form for creating a flight.", Btn_AddFlight);
+        }
+
+        private void Btn_AddClient_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This button opens the hub from which the user will be allowed to either entry a client manually, or generate N amount of\n" +
+                        "random clients, from 1 to 100.", Btn_AddClient);
+        }
+
+        private void Btn_ViewClient_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This button allows the user to see the list of clients and all their data.", Btn_ViewClient);
+        }
+
+        private void Btn_MainCheckDestinations_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This button opens a form which allows the user to see all the important data about the destinations.", Btn_MainCheckDestinations);
+        }
+
+        private void Lbl_ClientsAmount_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("This is the amount of registered clients.", Lbl_ClientsAmount);
+        }
+
+        private void btn_ExitProgram_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("Exit the program completely.",btn_ExitProgram);
+        }
+
+        private void btn_LogOut_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("Logout and return to the login screen.",btn_LogOut);
+        }
     }
 }
