@@ -61,7 +61,7 @@ namespace UI
             {
                 if(agent.LoginCheck(txtBox_Login_User.Text,txtBox_Login_Password.Text) == true) // IF THE CONTENT OF THE BOXES MATCHES SOME AGENT'S DATA...
                 {
-                    FrmMain main = new FrmMain(this,flights, history, agent, airplanes,inTheAir,0,clients,earnedTotal,earnedNational,earnedInternational,destinations);
+                    FrmMain main = new FrmMain(this,flights, history, agent, airplanes,inTheAir,1,clients,earnedTotal,earnedNational,earnedInternational,destinations);
                     main.Show();
                     this.Hide();  // LOG.
                 }
@@ -134,7 +134,7 @@ namespace UI
         /// </summary>
         private void RandomFlights()
         {
-            Extras.HardcodingFlights(clients, history,earnedTotal,earnedNational,earnedInternational,destinations);
+            Library.Extras.HardcodingFlights(clients, history,earnedTotal,earnedNational,earnedInternational,destinations);
         }
 
         //***********************************************

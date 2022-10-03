@@ -251,6 +251,19 @@ namespace UI
             FrmDestinations.Show();
         }
 
+        //***********************************************
+
+        private void Btn_AddPlane_Click(object sender, EventArgs e)
+        {
+            FrmAddPlane addPlane = new FrmAddPlane(airplanes);
+            if(addPlane.ShowDialog() == DialogResult.OK)
+            {
+                airplanes.Add(addPlane.Airplane());
+                Fleet.MaxFlights += 1;
+                Fleet.MaxFlights += 1;
+            }
+        }
+
         //------------------------------------------------------------
         //-------------------------------------------[ METHODS ]
         //------------------------------------------------------------
@@ -627,5 +640,6 @@ namespace UI
         {
             toolTip1.Show("Logout and return to the login screen.",btn_LogOut);
         }
+
     }
 }

@@ -225,7 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(517, 582);
+            this.ClientSize = new System.Drawing.Size(527, 590);
             this.ControlBox = false;
             this.Controls.Add(this.Btn_RandomData);
             this.Controls.Add(this.GrpBox_Name);

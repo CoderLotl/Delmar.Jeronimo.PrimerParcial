@@ -31,26 +31,26 @@
             this.GrpBox_Controls = new System.Windows.Forms.GroupBox();
             this.Btn_FrmAddFlightCancel = new System.Windows.Forms.Button();
             this.Btn_FrmAddFlightAccept = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtBox_PlaneTag = new System.Windows.Forms.TextBox();
             this.GrpBox_PlaneTag = new System.Windows.Forms.GroupBox();
             this.GrpBox_PlaneSeats = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NUD_PlaneSeats = new System.Windows.Forms.NumericUpDown();
             this.GrpBox_PlaneWcs = new System.Windows.Forms.GroupBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.NUD_PlaneWCS = new System.Windows.Forms.NumericUpDown();
             this.GrpBox_Requirements = new System.Windows.Forms.GroupBox();
             this.ChckBox_Food = new System.Windows.Forms.CheckBox();
             this.ChckBox_Wifi = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.GrpBox_PlaneCargo = new System.Windows.Forms.GroupBox();
+            this.NUD_PlaneCargo = new System.Windows.Forms.NumericUpDown();
             this.GrpBox_Controls.SuspendLayout();
             this.GrpBox_PlaneTag.SuspendLayout();
             this.GrpBox_PlaneSeats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlaneSeats)).BeginInit();
             this.GrpBox_PlaneWcs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlaneWCS)).BeginInit();
             this.GrpBox_Requirements.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.GrpBox_PlaneCargo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlaneCargo)).BeginInit();
             this.SuspendLayout();
             // 
             // GrpBox_Controls
@@ -58,7 +58,7 @@
             this.GrpBox_Controls.Controls.Add(this.Btn_FrmAddFlightCancel);
             this.GrpBox_Controls.Controls.Add(this.Btn_FrmAddFlightAccept);
             this.GrpBox_Controls.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GrpBox_Controls.Location = new System.Drawing.Point(244, 463);
+            this.GrpBox_Controls.Location = new System.Drawing.Point(232, 451);
             this.GrpBox_Controls.Name = "GrpBox_Controls";
             this.GrpBox_Controls.Size = new System.Drawing.Size(303, 118);
             this.GrpBox_Controls.TabIndex = 4;
@@ -73,6 +73,7 @@
             this.Btn_FrmAddFlightCancel.TabIndex = 3;
             this.Btn_FrmAddFlightCancel.Text = "Cancel";
             this.Btn_FrmAddFlightCancel.UseVisualStyleBackColor = true;
+            this.Btn_FrmAddFlightCancel.Click += new System.EventHandler(this.Btn_FrmAddFlightCancel_Click);
             // 
             // Btn_FrmAddFlightAccept
             // 
@@ -84,17 +85,19 @@
             this.Btn_FrmAddFlightAccept.TabIndex = 2;
             this.Btn_FrmAddFlightAccept.Text = "Accept";
             this.Btn_FrmAddFlightAccept.UseVisualStyleBackColor = true;
+            this.Btn_FrmAddFlightAccept.Click += new System.EventHandler(this.Btn_FrmAddFlightAccept_Click);
             // 
-            // textBox1
+            // TxtBox_PlaneTag
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(333, 23);
-            this.textBox1.TabIndex = 5;
+            this.TxtBox_PlaneTag.Location = new System.Drawing.Point(7, 25);
+            this.TxtBox_PlaneTag.Name = "TxtBox_PlaneTag";
+            this.TxtBox_PlaneTag.Size = new System.Drawing.Size(333, 23);
+            this.TxtBox_PlaneTag.TabIndex = 5;
+            this.TxtBox_PlaneTag.TextChanged += new System.EventHandler(this.TxtBox_PlaneTag_TextChanged);
             // 
             // GrpBox_PlaneTag
             // 
-            this.GrpBox_PlaneTag.Controls.Add(this.textBox1);
+            this.GrpBox_PlaneTag.Controls.Add(this.TxtBox_PlaneTag);
             this.GrpBox_PlaneTag.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.GrpBox_PlaneTag.Location = new System.Drawing.Point(14, 14);
             this.GrpBox_PlaneTag.Name = "GrpBox_PlaneTag";
@@ -105,7 +108,7 @@
             // 
             // GrpBox_PlaneSeats
             // 
-            this.GrpBox_PlaneSeats.Controls.Add(this.numericUpDown1);
+            this.GrpBox_PlaneSeats.Controls.Add(this.NUD_PlaneSeats);
             this.GrpBox_PlaneSeats.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.GrpBox_PlaneSeats.Location = new System.Drawing.Point(14, 93);
             this.GrpBox_PlaneSeats.Name = "GrpBox_PlaneSeats";
@@ -114,17 +117,27 @@
             this.GrpBox_PlaneSeats.TabStop = false;
             this.GrpBox_PlaneSeats.Text = "Number of seats";
             // 
-            // numericUpDown1
+            // NUD_PlaneSeats
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(7, 25);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(137, 23);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NUD_PlaneSeats.Location = new System.Drawing.Point(7, 25);
+            this.NUD_PlaneSeats.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.NUD_PlaneSeats.Name = "NUD_PlaneSeats";
+            this.NUD_PlaneSeats.Size = new System.Drawing.Size(137, 23);
+            this.NUD_PlaneSeats.TabIndex = 0;
+            this.NUD_PlaneSeats.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NUD_PlaneSeats.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // GrpBox_PlaneWcs
             // 
-            this.GrpBox_PlaneWcs.Controls.Add(this.numericUpDown2);
+            this.GrpBox_PlaneWcs.Controls.Add(this.NUD_PlaneWCS);
             this.GrpBox_PlaneWcs.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.GrpBox_PlaneWcs.Location = new System.Drawing.Point(14, 172);
             this.GrpBox_PlaneWcs.Name = "GrpBox_PlaneWcs";
@@ -133,13 +146,13 @@
             this.GrpBox_PlaneWcs.TabStop = false;
             this.GrpBox_PlaneWcs.Text = "Number of bathrooms";
             // 
-            // numericUpDown2
+            // NUD_PlaneWCS
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(7, 25);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(137, 23);
-            this.numericUpDown2.TabIndex = 0;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NUD_PlaneWCS.Location = new System.Drawing.Point(7, 25);
+            this.NUD_PlaneWCS.Name = "NUD_PlaneWCS";
+            this.NUD_PlaneWCS.Size = new System.Drawing.Size(137, 23);
+            this.NUD_PlaneWCS.TabIndex = 0;
+            this.NUD_PlaneWCS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // GrpBox_Requirements
             // 
@@ -173,32 +186,33 @@
             this.ChckBox_Wifi.Text = "Wifi";
             this.ChckBox_Wifi.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // GrpBox_PlaneCargo
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown3);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(14, 251);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(347, 73);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Number of bathrooms";
+            this.GrpBox_PlaneCargo.Controls.Add(this.NUD_PlaneCargo);
+            this.GrpBox_PlaneCargo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GrpBox_PlaneCargo.Location = new System.Drawing.Point(14, 251);
+            this.GrpBox_PlaneCargo.Name = "GrpBox_PlaneCargo";
+            this.GrpBox_PlaneCargo.Size = new System.Drawing.Size(347, 73);
+            this.GrpBox_PlaneCargo.TabIndex = 9;
+            this.GrpBox_PlaneCargo.TabStop = false;
+            this.GrpBox_PlaneCargo.Text = "Max Cargo";
             // 
-            // numericUpDown3
+            // NUD_PlaneCargo
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(7, 25);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(137, 23);
-            this.numericUpDown3.TabIndex = 0;
-            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NUD_PlaneCargo.Location = new System.Drawing.Point(7, 25);
+            this.NUD_PlaneCargo.Name = "NUD_PlaneCargo";
+            this.NUD_PlaneCargo.Size = new System.Drawing.Size(137, 23);
+            this.NUD_PlaneCargo.TabIndex = 0;
+            this.NUD_PlaneCargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NUD_PlaneCargo.ValueChanged += new System.EventHandler(this.NUD_PlaneCargo_ValueChanged);
             // 
             // FrmAddPlane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 593);
+            this.ClientSize = new System.Drawing.Size(543, 577);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GrpBox_PlaneCargo);
             this.Controls.Add(this.GrpBox_Requirements);
             this.Controls.Add(this.GrpBox_PlaneWcs);
             this.Controls.Add(this.GrpBox_PlaneSeats);
@@ -215,13 +229,13 @@
             this.GrpBox_PlaneTag.ResumeLayout(false);
             this.GrpBox_PlaneTag.PerformLayout();
             this.GrpBox_PlaneSeats.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlaneSeats)).EndInit();
             this.GrpBox_PlaneWcs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlaneWCS)).EndInit();
             this.GrpBox_Requirements.ResumeLayout(false);
             this.GrpBox_Requirements.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.GrpBox_PlaneCargo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_PlaneCargo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,16 +245,16 @@
         private System.Windows.Forms.GroupBox GrpBox_Controls;
         private System.Windows.Forms.Button Btn_FrmAddFlightCancel;
         private System.Windows.Forms.Button Btn_FrmAddFlightAccept;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtBox_PlaneTag;
         private System.Windows.Forms.GroupBox GrpBox_PlaneTag;
         private System.Windows.Forms.GroupBox GrpBox_PlaneSeats;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NUD_PlaneSeats;
         private System.Windows.Forms.GroupBox GrpBox_PlaneWcs;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown NUD_PlaneWCS;
         private System.Windows.Forms.GroupBox GrpBox_Requirements;
         private System.Windows.Forms.CheckBox ChckBox_Food;
         private System.Windows.Forms.CheckBox ChckBox_Wifi;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.GroupBox GrpBox_PlaneCargo;
+        private System.Windows.Forms.NumericUpDown NUD_PlaneCargo;
     }
 }

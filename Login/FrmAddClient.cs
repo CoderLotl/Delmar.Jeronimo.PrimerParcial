@@ -40,7 +40,7 @@ namespace UI
         private void TxtBox_DNI_TextChanged(object sender, EventArgs e)
         {
             CheckAll();
-            ColorChange(TxtBox_DNI, 1);
+            Extras.ControlColorChange(TxtBox_DNI, 1);
         }
 
         // ------------------------------------------------------
@@ -48,7 +48,7 @@ namespace UI
         private void TxtBox_Name_TextChanged(object sender, EventArgs e)
         {
             CheckAll();
-            ColorChange(TxtBox_Name, 0);
+            Extras.ControlColorChange(TxtBox_Name, 2);
         }
 
         // ------------------------------------------------------
@@ -56,7 +56,7 @@ namespace UI
         private void TxtBox_LastName_TextChanged(object sender, EventArgs e)
         {
             CheckAll();
-            ColorChange(TxtBox_LastName, 0);
+            Extras.ControlColorChange(TxtBox_LastName, 2);
         }
 
         // ------------------------------------------------------
@@ -172,27 +172,6 @@ namespace UI
         }
 
 
-        public void ColorChange(Control control, int option)
-        {
-            if (!String.IsNullOrEmpty(control.Text))
-            {
-                if((option == 1 && !int.TryParse(control.Text, out _)) || (option != 1 && !control.Text.All(char.IsLetter)))
-                {
-                    control.BackColor = System.Drawing.Color.PaleVioletRed;
-                }
-                else if(option == 2 && control.Text.Length >= 8)
-                {
-                    control.BackColor = System.Drawing.Color.PaleVioletRed;
-                }
-                else
-                {
-                    control.BackColor = System.Drawing.Color.LightGreen;
-                }
-            }
-            else
-            {
-                control.BackColor = SystemColors.Window;
-            }
-        }
+
     }
 }

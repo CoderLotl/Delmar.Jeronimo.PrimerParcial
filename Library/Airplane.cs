@@ -16,7 +16,6 @@ namespace Library
         private int seatsTourist;
         private int WCs;
         private int maxCargo;        
-        
         private bool hasFood;
         private bool hasWifi;
 
@@ -31,7 +30,7 @@ namespace Library
             this.maxCargo = maxCargo;                      
             this.hasFood = hasFood;
             this.hasWifi = hasWifi;
-            this.PictureURL = "default_plane.jpg";
+            this.PictureURL = "default_plane";
         }
 
         public Airplane(string tag, int seatsTotal,

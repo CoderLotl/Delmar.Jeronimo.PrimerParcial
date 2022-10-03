@@ -8,6 +8,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -21,8 +22,9 @@ namespace UI
         public FrmLogging()
         {
             InitializeComponent();            
-            timer1.Start();            
-            vuela.SoundLocation = "audiomass-output2.wav";
+            timer1.Start();
+            System.IO.Stream audio = Properties.Resources.audiomass_output2;
+            vuela = new System.Media.SoundPlayer(audio);
             vuela.Play();
         }
 

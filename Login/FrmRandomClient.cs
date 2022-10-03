@@ -29,7 +29,7 @@ namespace UI
         {
             int amount = (int)NUD_RdmClients.Value;
 
-            Extras.RandomClientsGenerator(amount,newClients,currentClients);
+            Library.Extras.RandomClientsGenerator(amount,newClients,currentClients);
 
             this.DialogResult = DialogResult.OK;
         }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using UI.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace UI
@@ -19,7 +20,8 @@ namespace UI
         //******************************************************
         List<Airplane> airplanes;
         Airplane? plane;
-        Flight? flight;        
+        Flight? flight;
+        Image? planeImage;
 
         Random randomNumber = new Random();        
         DateTime currentDate;
@@ -56,16 +58,8 @@ namespace UI
                 plane = airplanes[CmbBox_Plane.SelectedIndex - 1];
 
                 richTextBox1.Text = plane.ToString();
-
-                if (plane.PictureURL != "")
-                {
-                    string str = "../" + plane.PictureURL;
-                    pictureBox1.Image = Image.FromFile(str);
-                }
-                else
-                {
-                    pictureBox1.Image = null;                   
-                }
+                planeImage = (Image)Resources.ResourceManager.GetObject(plane.PictureURL)!;
+                pictureBox1.Image = (Image)planeImage;
 
                 if (!(string.IsNullOrEmpty(CmboBox_Origin.Text)) && !(string.IsNullOrEmpty(CmboBox_Destination.Text)))
                 {

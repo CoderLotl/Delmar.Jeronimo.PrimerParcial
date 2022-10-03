@@ -166,6 +166,7 @@
             this.Btn_AddPlane.TabIndex = 11;
             this.Btn_AddPlane.Text = "Add Plane";
             this.Btn_AddPlane.UseVisualStyleBackColor = false;
+            this.Btn_AddPlane.Click += new System.EventHandler(this.Btn_AddPlane_Click);
             // 
             // GrpBox_Earned
             // 
