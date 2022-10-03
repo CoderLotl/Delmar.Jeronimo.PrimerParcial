@@ -40,11 +40,11 @@ namespace Library
     {
         //******************************************************
 
-        Airplane airplane;
+        private Airplane airplane;
         private string origin;
         private string destination;
-        SortedDictionary<int, Passenger> tourist;
-        SortedDictionary<int, Passenger> premium;
+        private SortedDictionary<int, Passenger> tourist;
+        private SortedDictionary<int, Passenger> premium;
         private List<Luggage> cargo;
         private float price;
         private float premiumPrice;
@@ -100,20 +100,20 @@ namespace Library
         //******************************************************
 
 
-        public string Origin { get => origin; set => origin = value; }
-        public string Destination { get => destination; set => destination = value; }        
-        public float Price { get => price; set => price = value; }
+        public string Origin { get => origin;}
+        public string Destination { get => destination;}        
+        public float Price { get => price;}
         public int AmountPassengers { get => premium.Count+tourist.Count; }
-        public string FlightDuration { get => flightDuration; set => flightDuration = value; }
-        public string FlightStart { get => flightStart; set => flightStart = value; }
-        public string FlightEnd { get => flightEnd; set => flightEnd = value; }        
+        public string FlightDuration { get => flightDuration;}
+        public string FlightStart { get => flightStart;}
+        public string FlightEnd { get => flightEnd;}        
         public float PremiumPrice { get => premiumPrice; }
         public int PassengersTourist { get => tourist.Count;}
         public int PassengersPremium { get => premium.Count;}
         public SortedDictionary<int, Passenger> Tourist { get => tourist; set => tourist = value; }
         public SortedDictionary<int, Passenger> Premium { get => premium; set => premium = value; }
         public float FlightEarned { get => Earned(PassengersPremium, PremiumPrice, PassengersTourist, Price); }
-        public Airplane Airplane { get => airplane; set => airplane = value; }
+        public Airplane Airplane { get => airplane;}
         public string Tag { get => this.airplane.Tag; }
         public int Wcs { get => this.airplane.WCs1; }
         public int SeatsTotal { get => this.airplane.SeatsTotal; }
@@ -123,7 +123,7 @@ namespace Library
         public string HasFood { get { if (this.airplane.HasFood) { return "Yes"; } else { return "No"; } } }
 
         public bool IsNational { get => isNational; set => isNational = value; }
-        public List<Luggage> CargoLst { get => cargo; set => cargo = value; }
+        public List<Luggage> CargoLst { get => cargo; }
         
 
         private float CalculatePremiumPrice(float price)

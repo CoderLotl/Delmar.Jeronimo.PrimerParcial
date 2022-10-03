@@ -21,7 +21,7 @@ namespace Library
             this.earned = earned;
         }
 
-        public string DestinationP { get => destination; set => destination = value; }
+        public string DestinationP { get => destination;}
         public int Flights { get => flights; set => flights = value; }
         public float Earned { get => earned; set => earned = value; }
         public int Passengers { get => passengers; set => passengers = value; }

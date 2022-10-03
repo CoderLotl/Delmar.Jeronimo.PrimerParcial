@@ -15,11 +15,11 @@ namespace Library
         private int age;
         private int flights;
 
-        public string Name { get => name; set => name = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string Gender { get => gender; set => gender = value; }
-        public int Age { get => age; set => age = value; }        
-        public string Dni { get => dni; set => dni = value; }
+        public string Name { get => name;}
+        public string LastName { get => lastName; }
+        public string Gender { get => gender;}
+        public int Age { get => age; }        
+        public string Dni { get => dni; }
         public bool OnFly { get => onFly; set => onFly = value; }
         public int Flights { get => flights; set => flights = value; }
 

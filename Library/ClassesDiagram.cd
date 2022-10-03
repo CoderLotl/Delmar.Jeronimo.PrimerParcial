@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Library.Agent">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAQAAAAEAAADAAAAAgAAAQA=</HashCode>
+      <FileName>Agent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Airplane">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIADAQAIBwAAEEEAAAQAABAEAAAQAAABAAAEAACAA=</HashCode>
+      <FileName>Airplane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Baggage">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAQAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Baggage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Destination">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAQQIAAEECBAAAAAAAAAAAAEAAAABAAAAAA=</HashCode>
+      <FileName>Destination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Extras">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAIAAAAAAAAgQIAAAAAAAIAAAAAACAAAgAAAA=</HashCode>
+      <FileName>Extras.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Fleet">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAQAAgAAAAIAAAAgAAA=</HashCode>
+      <FileName>Fleet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Flight">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAgBAQgIEURgAAAEACJQQQAAUAAAAABFADAYBQggQQQ=</HashCode>
+      <FileName>Flight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.HandLuggage">
+    <Position X="2" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAMAAAQAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>HandLuggage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Luggage">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAgAAAAAAAQAAAAACAAAAAgIAAAACAAAAA=</HashCode>
+      <FileName>Luggage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Library.Passenger">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABAAARQACEkUAAgAQAAAAEAIAAAAAACAAAAAg=</HashCode>
+      <FileName>Passenger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Library.National">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAMoCAAIQAAAAAAAogQMAAAACEAAAA=</HashCode>
+      <FileName>Flight.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.International">
+    <Position X="17.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAEAAAAAAAAAAIAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Flight.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Library.LuggageType">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Luggage.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

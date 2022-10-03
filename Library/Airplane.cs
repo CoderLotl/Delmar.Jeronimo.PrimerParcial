@@ -47,14 +47,14 @@ namespace Library
             "Bathrooms: " + this.WCs1 + " | Max cargo: " + this.MaxCargo + "\n\n" +
             "Has wifi: " + this.HasWifi + " | Offers food: " + this.HasFood; ;
         }
-        public string Tag { get => tag; set => tag = value; }        
-        public int SeatsTotal { get => seatsTotal; set => seatsTotal = value; }
-        public int SeatsPremium { get => seatsPremium; set => seatsPremium = value; }
-        public int SeatsTourist { get => seatsTourist; set => seatsTourist = value; }
-        public int WCs1 { get => WCs; set => WCs = value; }        
-        public int MaxCargo { get => maxCargo; set => maxCargo = value; }
+        public string Tag { get => tag;}        
+        public int SeatsTotal { get => seatsTotal;}
+        public int SeatsPremium { get => seatsPremium;}
+        public int SeatsTourist { get => seatsTourist;}
+        public int WCs1 { get => WCs;}        
+        public int MaxCargo { get => maxCargo;}
         public string PictureURL { get => pictureURL; set => pictureURL = value; }        
-        public bool HasFood { get => hasFood; set => hasFood = value; }
-        public bool HasWifi { get => hasWifi; set => hasWifi = value; }
+        public bool HasFood { get => hasFood;}
+        public bool HasWifi { get => hasWifi;}
     }
 }
