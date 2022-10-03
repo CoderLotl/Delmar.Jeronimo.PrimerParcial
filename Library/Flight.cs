@@ -28,6 +28,8 @@ namespace Library
         Ushuaia,
     }
 
+    //***********************************************
+
     public enum International
     {        
         Recife,        
@@ -35,6 +37,9 @@ namespace Library
         Acapulco,        
         Miami,
     }
+
+    //***********************************************
+    //***********************************************
 
     public class Flight
     {
@@ -125,11 +130,19 @@ namespace Library
         public bool IsNational { get => isNational; set => isNational = value; }
         public List<Luggage> CargoLst { get => cargo; }
         
+        public static List<Flight> CreateFlightList()
+        {
+            return new List<Flight>();
+        }
+
+        //***********************************************
 
         private float CalculatePremiumPrice(float price)
         {
             return (price * 1.15f);
         }
+
+        //***********************************************
 
         private float Earned(int premiumSeats, float premiumPrice, int touristSeats, float touristPrice)
         {

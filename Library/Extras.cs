@@ -147,7 +147,7 @@ namespace Library
 
             for (int i = 0; i < flights; i++) // CREATING FLIGHTS
             {
-                Airplane airplane = Fleet.airplanes[dice.Next(0, Fleet.airplanes.Count)];
+                Airplane airplane = Lists.Airplanes[dice.Next(0, Lists.Airplanes.Count)];
 
                 int type = dice.Next(1, 3); // SETTING THE TYPE; EITHER NATIONAL OR INTERNATIONAL
                 string origin;
@@ -253,6 +253,8 @@ namespace Library
             }
         }
 
+        //***********************************************
+
         private static void EmbarkPassengers(List<Passenger> passengers, Random dice, int maxPremSeats, int occupiedPremSeats, int maxTourSeats, int occupiedTourSeats, SortedDictionary<int, Passenger> premium, SortedDictionary<int, Passenger> tourist)
         {
             for (int j = 0; j < passengers.Count; j++)
@@ -326,6 +328,8 @@ namespace Library
             }
         }
 
+        //***********************************************
+
         private static string FormatInternationalDestination(ref string str)
         {
             string destination;
@@ -348,6 +352,8 @@ namespace Library
             destination = str;
             return destination;
         }
+
+        //***********************************************
 
         private static void FormatNationalOriginAndDestination(ref string origin, ref string destination)
         {

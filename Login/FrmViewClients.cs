@@ -28,7 +28,7 @@ namespace UI
             clientsDataView = clientsDataTable.DefaultView;
         }
 
-
+        //***********************************************
 
         private void DrawTable()
         {
@@ -94,15 +94,21 @@ namespace UI
             Dgv_PassView.DataSource = clientsDataTable;
         }
 
+        //***********************************************
+
         private void FrmViewClients_Load(object sender, EventArgs e)
         {
             DrawTable();
         }
 
+        //***********************************************
+
         private void Btn_ViewClientsExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        //***********************************************
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {

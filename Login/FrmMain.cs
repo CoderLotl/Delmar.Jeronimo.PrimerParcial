@@ -19,37 +19,18 @@ namespace UI
         //----
         List<Destination> destinations;
         //----
-        List<Airplane> airplanes;
-        List<Airplane> inTheAir;
-        //----
-        List<Flight> flights;
-        List<Flight> history;
-        //----
         List<Flight> source;
-        //----
-        List<Passenger> clients;
+
         List<Passenger> allPassengers = new List<Passenger>();
-        float[] earnedTotal;
-        float[] earnedNational;
-        float[] earnedInternational;
         FrmLogin login;
         
         //******************************************************
 
-        public FrmMain(FrmLogin frmLogin,List<Flight> flightParam, List<Flight> history, Agent agentParam, List<Airplane> planesParam,
-                        List<Airplane> inTheAirParam,int intro,List<Passenger> clientsParam,float[] earnedTotal, float[] earnedNational, float[] earnedInternational,List<Destination> destinations)
+        public FrmMain(FrmLogin frmLogin, Agent agentParam, int intro, List<Destination> destinations)
         {
             InitializeComponent();            
 
             agent = agentParam;
-            airplanes = planesParam;
-            flights = flightParam;
-            this.history = history;
-            inTheAir = inTheAirParam;
-            clients = clientsParam;
-            this.earnedTotal = earnedTotal;
-            this.earnedNational = earnedNational;
-            this.earnedInternational = earnedInternational;
             this.destinations = destinations;
 
             lbl_UserName.Text = agent.Name;
@@ -62,7 +43,7 @@ namespace UI
                 FrmLogging logging = new FrmLogging();
                 logging.Show();
             }
-            source = flights;
+            source = Lists.Flights;
             FlightsAmountUpdate(); // INITIALIZES THE DATA OF FLIGHTS SHOWN IN THE FLIGHTS LABEL
             PlanesAmountUpdate();  // INITIALIZES THE DATA OF PLANES SHOWN IN THE PLANES LABEL
             CmbBoxFlightsPopulate(); // POPULATES THE COMBOBOX OF FLIGHTS WITH THE FLIGHTS.
@@ -84,9 +65,9 @@ namespace UI
 
             ClientsAmountUpdate(); // DISPLAYING THE CURRENT AMOUNT OF CLIENTS IN THE CLIENT'S LABEL
 
-            Lbl_Earned.Text = earnedTotal[0].ToString("c2"); // DISPLAYS THE EARNED MONEY WITH THE PAST FLIGHTS. SAMEFOR THE NEXT 2 LINES.
-            Lbl_National.Text = earnedNational[0].ToString("c2");
-            Lbl_International.Text = earnedInternational[0].ToString("c2");
+            Lbl_Earned.Text = Lists.EarnedTotal[0].ToString("c2"); // DISPLAYS THE EARNED MONEY WITH THE PAST FLIGHTS. SAMEFOR THE NEXT 2 LINES.
+            Lbl_National.Text = Lists.EarnedNational[0].ToString("c2");
+            Lbl_International.Text = Lists.EarnedInternational[0].ToString("c2");
             
             RdoBttn_SourceCurrent.Checked = true; // SETTING THE DATASOURCE TO CURRENT.
         }
@@ -126,12 +107,12 @@ namespace UI
 
         private void Btn_AddFlight_Click(object sender, EventArgs e)
         {
-            FrmAddFlight addNewFlight = new(airplanes);
+            FrmAddFlight addNewFlight = new(Lists.Airplanes);
             if(addNewFlight.ShowDialog() == DialogResult.OK)
             {
-                flights.Add(addNewFlight.Flight);
-                inTheAir.Add(addNewFlight.Plane);
-                airplanes.Remove(addNewFlight.Plane);                
+                Lists.Flights.Add(addNewFlight.Flight);
+                Lists.AirplanesInTheAir.Add(addNewFlight.Plane);
+                Lists.Airplanes.Remove(addNewFlight.Plane);                
                 DataGridAllFlightsDisplay();
                 CmbBoxFlightsPopulate();
 
@@ -149,14 +130,14 @@ namespace UI
             if (DgvMainGrid.Columns[e.ColumnIndex].Name == "dgvRmvFlight")
             {
                 int index = DgvMainGrid.CurrentRow.Index;
-                Flight aFlight = flights[index];                
+                Flight aFlight = Lists.Flights[index];                
 
-                foreach(Airplane airplane in inTheAir)
+                foreach(Airplane airplane in Lists.AirplanesInTheAir)
                 {
                     if(airplane.Tag == aFlight.Airplane.Tag)
                     {
-                        inTheAir.Remove(airplane);
-                        airplanes.Add(airplane);
+                        Lists.AirplanesInTheAir.Remove(airplane);
+                        Lists.Airplanes.Add(airplane);
                         break;
                     }
                 }
@@ -170,24 +151,24 @@ namespace UI
                     premiumPassenger.Value.OnFly = false;
                 }
 
-                history.Add(flights[DgvMainGrid.CurrentRow.Index]);
+                Lists.History.Add(Lists.Flights[DgvMainGrid.CurrentRow.Index]);
 
-                earnedTotal[0] += aFlight.FlightEarned;
+                Lists.EarnedTotal[0] += aFlight.FlightEarned;
                 
                 if(aFlight.IsNational == true)
                 {
-                    earnedNational[0] += aFlight.FlightEarned;
+                    Lists.EarnedNational[0] += aFlight.FlightEarned;
                 }
                 else
                 {
-                    earnedInternational[0] += aFlight.FlightEarned;
+                    Lists.EarnedInternational[0] += aFlight.FlightEarned;
                 }
 
-                Lbl_Earned.Text = earnedTotal[0].ToString("c2");
-                Lbl_National.Text = earnedNational[0].ToString("c2");
-                Lbl_International.Text = earnedInternational[0].ToString("c2");
+                Lbl_Earned.Text = Lists.EarnedTotal[0].ToString("c2");
+                Lbl_National.Text = Lists.EarnedNational[0].ToString("c2");
+                Lbl_International.Text = Lists.EarnedInternational[0].ToString("c2");
 
-                flights.RemoveAt(DgvMainGrid.CurrentRow.Index);
+                Lists.Flights.RemoveAt(DgvMainGrid.CurrentRow.Index);
 
                 for (int i = 0; i < destinations.Count; i++)
                 {
@@ -212,7 +193,7 @@ namespace UI
 
         private void Btn_SellTicket_Click(object sender, EventArgs e) // SELL TICKET BUTTON
         {
-            FrmSellTicketMain sellTicket = new FrmSellTicketMain(flights,clients,this);
+            FrmSellTicketMain sellTicket = new FrmSellTicketMain(Lists.Flights,Lists.Clients,this);
             sellTicket.ShowDialog();
         }
 
@@ -221,7 +202,7 @@ namespace UI
         private void Btn_AddClient_Click(object sender, EventArgs e) // ADD CLIENT BUTTON
         {
 
-            FrmAddPassengerHUB frmAddPassengerHUB = new FrmAddPassengerHUB(clients);
+            FrmAddPassengerHUB frmAddPassengerHUB = new FrmAddPassengerHUB(Lists.Clients);
             if(frmAddPassengerHUB.ShowDialog() == DialogResult.OK)
             {
                 List<Passenger> someClients = new List<Passenger>();
@@ -229,7 +210,7 @@ namespace UI
 
                 foreach(Passenger passenger in someClients)
                 {                 
-                    clients.Add(passenger);
+                    Lists.Clients.Add(passenger);
                 }
                 ClientsAmountUpdate();
             }            
@@ -239,7 +220,7 @@ namespace UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmViewClients viewClients = new FrmViewClients(clients);
+            FrmViewClients viewClients = new FrmViewClients(Lists.Clients);
             viewClients.Show();
         }
 
@@ -255,10 +236,10 @@ namespace UI
 
         private void Btn_AddPlane_Click(object sender, EventArgs e)
         {
-            FrmAddPlane addPlane = new FrmAddPlane(airplanes);
+            FrmAddPlane addPlane = new FrmAddPlane(Lists.Airplanes);
             if(addPlane.ShowDialog() == DialogResult.OK)
             {
-                airplanes.Add(addPlane.Airplane());
+                Lists.Airplanes.Add(addPlane.Airplane());
                 Fleet.MaxFlights += 1;
                 Fleet.MaxPlanes += 1;
                 PlanesAmountUpdate();
@@ -477,12 +458,12 @@ namespace UI
 
         private void FlightsAmountUpdate()
         {
-            Lbl_FlightsAmount.Text = "Current Flights: " + flights.Count.ToString()+" / "+Fleet.MaxFlights.ToString()+" max.";
-            if (flights.Count <= (Fleet.MaxFlights/3))
+            Lbl_FlightsAmount.Text = "Current Flights: " + Lists.Flights.Count.ToString()+" / "+Fleet.MaxFlights.ToString()+" max.";
+            if (Lists.Flights.Count <= (Fleet.MaxFlights/3))
             {
                 Lbl_FlightsAmount.ForeColor = System.Drawing.Color.Green;
             }
-            else if (flights.Count >= (Fleet.MaxFlights / 3) && flights.Count <= ((Fleet.MaxFlights / 3)*2))
+            else if (Lists.Flights.Count >= (Fleet.MaxFlights / 3) && Lists.Flights.Count <= ((Fleet.MaxFlights / 3)*2))
             {
                 Lbl_FlightsAmount.ForeColor = System.Drawing.Color.Yellow;
             }
@@ -496,12 +477,12 @@ namespace UI
 
         private void PlanesAmountUpdate()
         {
-            Lbl_PlanesAmount.Text = "Free Airplanes: " + airplanes.Count.ToString() + " / " + Fleet.MaxPlanes.ToString() + " max.";
-            if (flights.Count <= (Fleet.MaxFlights / 3))
+            Lbl_PlanesAmount.Text = "Free Airplanes: " + Lists.Airplanes.Count.ToString() + " / " + Fleet.MaxPlanes.ToString() + " max.";
+            if (Lists.Flights.Count <= (Fleet.MaxFlights / 3))
             {
                 Lbl_PlanesAmount.ForeColor = System.Drawing.Color.Green;
             }
-            else if (airplanes.Count >= (Fleet.MaxPlanes / 3) && airplanes.Count <= ((Fleet.MaxPlanes / 3) * 2))
+            else if (Lists.Airplanes.Count >= (Fleet.MaxPlanes / 3) && Lists.Airplanes.Count <= ((Fleet.MaxPlanes / 3) * 2))
             {
                 Lbl_PlanesAmount.ForeColor = System.Drawing.Color.Yellow;
             }
@@ -528,7 +509,7 @@ namespace UI
 
         private void ClientsAmountUpdate()
         {
-            Lbl_ClientsAmount.Text = "Clients: "+clients.Count.ToString();
+            Lbl_ClientsAmount.Text = "Clients: "+Lists.Clients.Count.ToString();
         }
 
         //------------------------------------------------------------
@@ -546,7 +527,7 @@ namespace UI
         {
             if(RdoBttn_SourceCurrent.Checked == true)
             {
-                source = flights;
+                source = Lists.Flights;
                 DataGridAllFlightsDisplay();
                 CmbBoxFlightsPopulate();
             }            
@@ -558,7 +539,7 @@ namespace UI
         {
             if(RdoBttn_SourceHistory.Checked == true)
             {
-                source = history;
+                source = Lists.History;
                 DataGridAllFlightsDisplay();
                 CmbBoxFlightsPopulate();
             }

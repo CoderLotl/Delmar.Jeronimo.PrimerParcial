@@ -25,6 +25,8 @@ namespace UI
             newClients = new List<Passenger>();
         }
 
+        //***********************************************
+
         private void Btn_RdmAccept_Click(object sender, EventArgs e)
         {
             int amount = (int)NUD_RdmClients.Value;
@@ -34,10 +36,13 @@ namespace UI
             this.DialogResult = DialogResult.OK;
         }
 
+        //***********************************************
         private void Btn_RdmCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+        //***********************************************
 
         public List<Passenger> Clients
         {

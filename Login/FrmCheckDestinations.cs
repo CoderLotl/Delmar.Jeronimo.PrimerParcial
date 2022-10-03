@@ -13,10 +13,11 @@ namespace UI
 {
     public partial class FrmCheckDestinations : Form
     {
-
+        //******************************************************
         DataTable destinationsDataTable;
         DataView destinationsDataView;
         List<Destination> destinations;
+        //******************************************************
 
         public FrmCheckDestinations(List<Destination> destinations)
         {
@@ -25,6 +26,26 @@ namespace UI
             destinationsDataTable = new DataTable();
             destinationsDataView = destinationsDataTable.DefaultView;
         }
+
+        //***********************************************
+
+        private void FrmCheckDestinations_Load(object sender, EventArgs e)
+        {
+            DrawDataTable();
+        }
+
+        //------------------------------------------------------------
+        //-------------------------------------------[ BUTTONS ]
+        //------------------------------------------------------------
+
+        private void Btn_ChckDestClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //------------------------------------------------------------
+        //-------------------------------------------[ METHODS ]
+        //------------------------------------------------------------
 
         private void DrawDataTable()
         {            
@@ -68,16 +89,6 @@ namespace UI
             }
             DgvCheckDestinations.DataSource = destinationsDataTable;
             
-        }
-
-        private void FrmCheckDestinations_Load(object sender, EventArgs e)
-        {
-            DrawDataTable();
-        }
-
-        private void Btn_ChckDestClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

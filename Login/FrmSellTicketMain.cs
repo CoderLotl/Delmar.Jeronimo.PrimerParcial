@@ -33,11 +33,14 @@ namespace UI
             flightsDataView = flightsDataTable.DefaultView;            
         }
 
+        //***********************************************
+
         private void FrmSellTicketMain_Load(object sender, EventArgs e)
         {
             DrawDataTable(0);
         }
 
+        //***********************************************
 
         private void Btn_SellTicketCancel_Click(object sender, EventArgs e)
         {
@@ -45,6 +48,7 @@ namespace UI
             main.DataGridAllFlightsDisplay();
         }
 
+        //***********************************************
 
         private void Btn_SellTicketAccept_Click(object sender, EventArgs e)
         {
@@ -73,6 +77,8 @@ namespace UI
                 Btn_SellTicketAccept.Enabled = false;
             }
         }
+
+        //***********************************************
 
         private void RdoBttn_National_CheckedChanged(object sender, EventArgs e)
         {            
@@ -131,6 +137,8 @@ namespace UI
             }            
         }
 
+        //***********************************************
+
         private void RdoBttn_International_CheckedChanged(object sender, EventArgs e)
         {
             
@@ -169,6 +177,8 @@ namespace UI
             }            
         }
 
+        //***********************************************
+
         private void CmboBox_Origin_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(CmboBox_Destination.Text))
@@ -186,6 +196,8 @@ namespace UI
             }          
         }
 
+        //***********************************************
+
         private void CmboBox_Destination_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(CmboBox_Origin.Text))
@@ -202,6 +214,8 @@ namespace UI
                 Dgv_TicketFlights.DataSource = flightsDataView;                
             }
         }
+
+        //***********************************************
 
         private void ChckBox_Wifi_CheckedChanged(object sender, EventArgs e)
         {
@@ -226,6 +240,8 @@ namespace UI
             }
         }
 
+        //***********************************************
+
         private void ChckBox_Food_CheckedChanged(object sender, EventArgs e)
         {
             if (ChckBox_Food.Checked == true)
@@ -249,6 +265,8 @@ namespace UI
             }
         }
 
+        //***********************************************
+
         private void Dgv_TicketFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Dgv_TicketFlights.Columns[e.ColumnIndex].Name == "dgvSlcFlight")
@@ -271,6 +289,8 @@ namespace UI
                 }
             }
         }
+
+        //***********************************************
 
         private void DrawDataTable(int opt)
         {

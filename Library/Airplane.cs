@@ -39,6 +39,12 @@ namespace Library
             this.PictureURL = picURL;
         }
 
+        public static List<Airplane> CreateAirplanesList()
+        {
+            return new List<Airplane>();
+        }
+
+
         public override string ToString()
         {
             return "////////////////////////[ PLANE ]////////////////////////\n\n" +

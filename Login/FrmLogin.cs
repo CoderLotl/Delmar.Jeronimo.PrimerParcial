@@ -10,20 +10,12 @@ namespace UI
     {
         //******************************************************
 
-        // Here go all the lists the program is going to use during its running time.
-        // Why here? Because this makes them prevail the user off-logging. Any changes performed for one user exist for all the users.
+        // Here go all the lists the program is going to use during its running time.        
 
         // HEADER
         List<Destination> destinations; // LIST OF DESTINATIONS AS OBJECTS. WILL SERVE TO SEE THE AMOUNT OF PASSENGERS THEY RECEIVE AND HOW MUCH THEY EARN.
         List<Agent> users; // LIST OF REGISTERED USERS THAT WILL OPERATE THE PLATFORM.
-        List<Flight> flights; // LIST OF CURRENTLY ON-GOING FLIGHTS
-        List<Flight> history; // HISTORY OF FLIGHTS
-        List<Airplane> airplanes; // LIST OF CURRENT PLANES
-        List<Airplane> inTheAir; // LIST OF PLANES IN THE AIR
-        List<Passenger> clients; // LIST OF CLIENTS. THEY CAN BECOME PASSENGERS.
-        float[] earnedTotal; // TOTAL OF EARNED MONEY
-        float[] earnedNational; // TOTAL OF EARNED MONEY IN NATIONAL FLIGHTS
-        float[] earnedInternational; // TOTAL OF EARNED MONEY IN INTERNATIONAL FLIGHTS
+
 
         //******************************************************
 
@@ -33,17 +25,9 @@ namespace UI
 
             users = new List<Agent> { new Agent("1", "2","Pepe")};
             destinations = Destination.PopulateDestinations();
-            flights = new List<Flight>();
-            airplanes = Fleet.airplanes;
-            inTheAir = new List<Airplane>();
-            clients = new List<Passenger>();
-            history = new List<Flight>();
-            earnedTotal = new float[1];
-            earnedTotal[0] = 0;
-            earnedNational = new float[1];
-            earnedNational[0] = 0;
-            earnedInternational = new float[1];
-            earnedInternational[0] = 0;
+
+            Lists.BuildLists();
+
             UpdatePlanes();
             RandomFlights(); 
         }
@@ -61,7 +45,7 @@ namespace UI
             {
                 if(agent.LoginCheck(txtBox_Login_User.Text,txtBox_Login_Password.Text) == true) // IF THE CONTENT OF THE BOXES MATCHES SOME AGENT'S DATA...
                 {
-                    FrmMain main = new FrmMain(this,flights, history, agent, airplanes,inTheAir,1,clients,earnedTotal,earnedNational,earnedInternational,destinations);
+                    FrmMain main = new FrmMain(this,agent,0,destinations);
                     main.Show();
                     this.Hide();  // LOG.
                 }
@@ -108,7 +92,7 @@ namespace UI
         {
             int index = 0;
 
-            Airplane airplaneToGo = airplanes[index]; // CREATES AN AIRPLANE...
+            Airplane airplaneToGo = Lists.Airplanes[index]; // CREATES AN AIRPLANE...
             SortedDictionary<int, Passenger> tourist = new SortedDictionary<int, Passenger>(); // WITH THE LISTS OF PASSENGERS...
             SortedDictionary<int, Passenger> premium = new SortedDictionary<int, Passenger>();
 
@@ -124,9 +108,9 @@ namespace UI
             flightToGo.Tourist.Add(2,tester);
             flightToGo.Tourist.Add(3,tester);            // AND ADDS IT THRICE
             
-            flights.Add(flightToGo);// ADDS THE FLIGHT
-            airplanes.RemoveAt(index); // REMOVES THE PPLANE FROM THE AVAILABLE PLANES
-            inTheAir.Add(airplaneToGo);            // AND ADDS THE PLANE TO A BACKGROUND LIST.
+            Lists.Flights.Add(flightToGo);// ADDS THE FLIGHT
+            Lists.Airplanes.RemoveAt(index); // REMOVES THE PPLANE FROM THE AVAILABLE PLANES
+            Lists.AirplanesInTheAir.Add(airplaneToGo);            // AND ADDS THE PLANE TO A BACKGROUND LIST.
         }
 
         /// <summary>
@@ -134,7 +118,7 @@ namespace UI
         /// </summary>
         private void RandomFlights()
         {
-            Library.Extras.HardcodingFlights(clients, history,earnedTotal,earnedNational,earnedInternational,destinations);
+            Library.Extras.HardcodingFlights(Lists.Clients, Lists.History,Lists.EarnedTotal,Lists.EarnedNational,Lists.EarnedInternational,destinations);
         }
 
         //***********************************************

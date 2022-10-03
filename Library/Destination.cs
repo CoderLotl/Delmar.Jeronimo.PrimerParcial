@@ -8,10 +8,14 @@ namespace Library
 {
     public class Destination
     {
+        //******************************************************
+
         private string destination;
         private int flights;
         private int passengers;
         private float earned;
+
+        //******************************************************
 
         public Destination(string destination, int flights, float earned, int passengers)
         {

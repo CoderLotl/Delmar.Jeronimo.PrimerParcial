@@ -58,5 +58,10 @@ namespace Library
 
             return daPassanger.ToString();
         }
+
+        public static List<Passenger> CreatePassengersList()
+        {
+            return new List<Passenger>();
+        }
     }
 }

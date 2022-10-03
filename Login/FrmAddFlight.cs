@@ -27,6 +27,7 @@ namespace UI
         DateTime currentDate;
         //******************************************************
 
+        
         public FrmAddFlight(List<Airplane> airplanesParam)
         {
             InitializeComponent();
@@ -143,7 +144,7 @@ namespace UI
         {
             CmboBox_Origin.Items.Clear();
             CmboBox_Origin.Text = String.Empty;            
-            foreach(string item in Enum.GetValues(typeof(National)))
+            foreach(var item in Enum.GetValues(typeof(National)))
             {
                 string str = "";
 
@@ -172,7 +173,7 @@ namespace UI
 
             CmboBox_Destination.Items.Clear();
             CmboBox_Destination.Text = String.Empty;
-            foreach (string item in Enum.GetValues(typeof(National)))
+            foreach (var item in Enum.GetValues(typeof(National)))
             {
                 string str = "";
 
