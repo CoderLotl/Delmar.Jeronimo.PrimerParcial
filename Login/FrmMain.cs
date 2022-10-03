@@ -260,7 +260,9 @@ namespace UI
             {
                 airplanes.Add(addPlane.Airplane());
                 Fleet.MaxFlights += 1;
-                Fleet.MaxFlights += 1;
+                Fleet.MaxPlanes += 1;
+                PlanesAmountUpdate();
+                FlightsAmountUpdate();
             }
         }
 

@@ -11,6 +11,11 @@ namespace Library
 {
     public static class Extras
     {
+
+        //----------------------------------------------
+        //---------------------------- CLIENTS GENERATOR
+        //----------------------------------------------
+
         public static void RandomClientsGenerator(int amount, List<Passenger> newClients,List<Passenger> currentClients)
         {
             int i;
@@ -125,9 +130,9 @@ namespace Library
             return foundDni;
         }
 
-        //***********************************************
-        //*******************************************
-        //***********************************************
+        //----------------------------------------------
+        //---------------------------- FLIGHTS HARDCODER
+        //----------------------------------------------
 
         public static void HardcodingFlights(List<Passenger> passengers,List<Flight> history, float[] earnedTotal, float[] earnedNational, float[] earnedInternational,
                                                 List<Destination> destinations)
@@ -173,44 +178,7 @@ namespace Library
                     origin = ((National)originIndex).ToString();
                     destination = ((National)destinationIndex).ToString();
 
-
-                    for (int d = 0; d < 2; d++) // PARSING THE ENUM RIGHT
-                    {
-                        string str;
-                        if (d == 0)
-                        {
-                            str = origin;
-                        }
-                        else
-                        {
-                            str = destination;
-                        }
-
-                        switch (str)
-                        {
-                            case "BuenosAires":
-                                str = "Buenos Aires";
-                                break;
-                            case "SantaRosa":
-                                str = "Santa Rosa";
-                                break;
-                            case "SantiagoDelEstero":
-                                str = "Santiago Del Estero";
-                                break;
-                            case "PuertoMadryn":
-                                str = "Puerto Madryn";
-                                break;
-                        }
-
-                        if (d == 0)
-                        {
-                            origin = str;
-                        }
-                        else
-                        {
-                            destination = str;
-                        }
-                    } // I FINISH PARSING BOTH ORIGIN AND DESTINATION
+                    FormatNationalOriginAndDestination(ref origin, ref destination);
 
                     flightDuration = dice.Next(120, 241); // RANDOM FLIGHT DURATION
                     duration = TimeSpan.FromMinutes(flightDuration);
@@ -225,23 +193,7 @@ namespace Library
 
                     string str = destination;
 
-                    switch (str)
-                    {
-                        case "Recife":
-                            str = "Recife (Brasil)";
-                            break;
-                        case "Rome":
-                            str = "Rome (Italy)";
-                            break;
-                        case "Acapulco":
-                            str = "Acapulco (Mexico)";
-                            break;
-                        case "Miami":
-                            str = "Miami (USA)";
-                            break;
-                    }
-
-                    destination = str;
+                    destination = FormatInternationalDestination(ref str);
 
                     flightDuration = dice.Next(480, 721);
                     duration = TimeSpan.FromMinutes(flightDuration);
@@ -256,93 +208,26 @@ namespace Library
 
                 // ------- NOW IT'S TIME TO EMBARK THE PASSENGERS
 
-                for (int j = 0; j < passengers.Count; j++)
-                {
-                    int chancesToEmbark = dice.Next(1, 3); // THERE'S A 50% FOR THE PASSANGER TO EMBARK. NOT EVERYBODY TRAVELS...
-                    
-                    if(chancesToEmbark == 1)
-                    {
-                        int passengerType = dice.Next(1, 3); // PICKING A RANDOM TYPE OF PASSENGER CLASS
+                EmbarkPassengers(passengers, dice, maxPremSeats, occupiedPremSeats, maxTourSeats, occupiedTourSeats, premium, tourist);
 
-                        if (passengerType == 1)
-                        {
-                            if (occupiedPremSeats < maxPremSeats)
-                            {
-                                if (premium.Count > 0)
-                                {
-                                    premium.Add(premium.Keys.Last() + 1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                                else
-                                {
-                                    premium.Add(1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                            }
-                            else
-                            {
-                                if (tourist.Count > 0)
-                                {
-                                    tourist.Add(tourist.Keys.Last() + 1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                                else
-                                {
-                                    tourist.Add(1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                            }
-                        }
-                        //----
-                        else
-                        {
-                            if (occupiedTourSeats < maxTourSeats)
-                            {
-                                if (tourist.Count > 0)
-                                {
-                                    tourist.Add(tourist.Keys.Last() + 1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                                else
-                                {
-                                    tourist.Add(1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                            }
-                            else
-                            {
-                                if (premium.Count > 0)
-                                {
-                                    premium.Add(premium.Keys.Last() + 1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                                else
-                                {
-                                    premium.Add(1, passengers[j]);
-                                    passengers[j].Flights++;
-                                }
-                            }
-                        }
-                    }
+                // PASSENGERS EMBARKED!!
 
-                    // PASSENGERS EMBARKED!!
-                }
                 List<Luggage> luggage = new List<Luggage>();
 
                 DateTime datetoday = DateTime.Now;
 
-                int rndYear = dice.Next(2018, datetoday.Year+1);
+                int rndYear = dice.Next(2018, datetoday.Year + 1);
                 int rndMonth = dice.Next(1, 12);
                 int rndDay = dice.Next(1, 28);
                 int rndHour = dice.Next(1, 24);
                 int rndMin = dice.Next(1, 60);
                 int rndSec = dice.Next(1, 60);
 
-                DateTime flightStart = new DateTime(rndYear, rndMonth, rndDay,rndHour,rndMin,rndSec);
+                DateTime flightStart = new DateTime(rndYear, rndMonth, rndDay, rndHour, rndMin, rndSec);
 
                 Flight daFlight = new Flight(airplane, origin, destination, tourist, premium, luggage, price, duration.ToString(@"hh\:mm") + " hours", flightStart.ToString(), (flightStart + duration).ToString());
 
-                if(type == 1)
+                if (type == 1)
                 {
                     earnedNational[0] += daFlight.FlightEarned;
                 }
@@ -364,9 +249,145 @@ namespace Library
                         break;
                     }
                 }
-
                 history.Add(daFlight);
             }
+        }
+
+        private static void EmbarkPassengers(List<Passenger> passengers, Random dice, int maxPremSeats, int occupiedPremSeats, int maxTourSeats, int occupiedTourSeats, SortedDictionary<int, Passenger> premium, SortedDictionary<int, Passenger> tourist)
+        {
+            for (int j = 0; j < passengers.Count; j++)
+            {
+                int chancesToEmbark = dice.Next(1, 3); // THERE'S A 50% FOR THE PASSANGER TO EMBARK. NOT EVERYBODY TRAVELS...
+
+                if (chancesToEmbark == 1) //1 EMBARKS, 2 THEY DON'T EMBARK
+                {
+                    int passengerType = dice.Next(1, 3); // PICKING A RANDOM TYPE OF PASSENGER CLASS
+
+                    if (passengerType == 1) // 1 = PREMIUM
+                    {
+                        if (occupiedPremSeats < maxPremSeats)
+                        {
+                            if (premium.Count > 0)
+                            {
+                                premium.Add(premium.Keys.Last() + 1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                            else
+                            {
+                                premium.Add(1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                        }
+                        else
+                        {
+                            if (tourist.Count > 0)
+                            {
+                                tourist.Add(tourist.Keys.Last() + 1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                            else
+                            {
+                                tourist.Add(1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                        }
+                    }
+                    //----
+                    else
+                    {
+                        if (occupiedTourSeats < maxTourSeats)
+                        {
+                            if (tourist.Count > 0)
+                            {
+                                tourist.Add(tourist.Keys.Last() + 1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                            else
+                            {
+                                tourist.Add(1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                        }
+                        else
+                        {
+                            if (premium.Count > 0)
+                            {
+                                premium.Add(premium.Keys.Last() + 1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                            else
+                            {
+                                premium.Add(1, passengers[j]);
+                                passengers[j].Flights++;
+                            }
+                        }
+                    }
+                }                
+            }
+        }
+
+        private static string FormatInternationalDestination(ref string str)
+        {
+            string destination;
+            switch (str)
+            {
+                case "Recife":
+                    str = "Recife (Brasil)";
+                    break;
+                case "Rome":
+                    str = "Rome (Italy)";
+                    break;
+                case "Acapulco":
+                    str = "Acapulco (Mexico)";
+                    break;
+                case "Miami":
+                    str = "Miami (USA)";
+                    break;
+            }
+
+            destination = str;
+            return destination;
+        }
+
+        private static void FormatNationalOriginAndDestination(ref string origin, ref string destination)
+        {
+            for (int d = 0; d < 2; d++) // PARSING THE ENUM RIGHT
+            {
+                string str;
+                if (d == 0) // D = 0 represents the 1st row, when we are parsing the Origin.
+                {
+                    str = origin;
+                }
+                else // D = 1 represents the 2nd row, when we are parsing the Destination.
+                {
+                    str = destination;
+                }
+
+                switch (str)
+                {
+                    case "BuenosAires":
+                        str = "Buenos Aires";
+                        break;
+                    case "SantaRosa":
+                        str = "Santa Rosa";
+                        break;
+                    case "SantiagoDelEstero":
+                        str = "Santiago Del Estero";
+                        break;
+                    case "PuertoMadryn":
+                        str = "Puerto Madryn";
+                        break;
+                }
+
+                if (d == 0)
+                {
+                    origin = str;
+                }
+                else
+                {
+                    destination = str;
+                }
+            } // I FINISH PARSING BOTH ORIGIN AND DESTINATION
         }
     }
 }
