@@ -1,29 +1,29 @@
-# 2do D - Primer Parcial
+# *2do D - Primer Parcial*
 
 # Delmar.Jeronimo.PrimerParcial
 1st Exam - 2022
 
 
-Title: "1st Exam, 2ºD, 2022 - Magical Turkish Airlines"
+## **Title:** *"1st Exam, 2ºD, 2022 - Magical Turkish Airlines"*
     
     
 
-//------------------------------
+---
     
-About me:
+**About me:**
 
-My name is Jerónimo Delmar and (as you may probably know) I'm a 1st year Programming student at UTN-FRA.
+*My name is Jerónimo Delmar and (as you may probably know) I'm a 1st year Programming student at UTN-FRA.
 Prior to this I never had any contact with programming, although I have a wide and general experience with mechanic and electronic devices.
 This project posed a real challenge, as I can generally visualize mechanic blocks, but I had 0 knowledge about MVSC, Windows Forms, and interface controls
-and how to deal with them. I resulted into a thrilling, intense, exhaustive, and fun experience.
+and how to deal with them. I resulted into a thrilling, intense, exhaustive, and fun experience.*
 
-NOTE: I still think passengers should have Health Points and faint (at least) during the trip. Traveling is tiring.
+**NOTE:** I still think passengers should have Health Points and faint (at least) during the trip. Traveling is tiring.
     
     
     
-Diagrama de clases: Pegar una foto del diagrama de clases correspondiente a la lógica de negocio. Se debe construir con la herramienta de Visual Studio 
-y deberá estar actualizado a la última versión entregada de la solución.
+![alt text](https://postimg.cc/HchfnBJb)
 
+---
 
 Subject 1: "Introduction to .NET & C#"
     
